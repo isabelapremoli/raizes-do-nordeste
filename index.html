@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,83 +13,198 @@
 
     <header>
         <h1>Raízes do Nordeste</h1>
-        <p>Comida boa e tradição nordestina!</p>
+        <p>Sabores e tradições da nossa região!</p>
     </header>
 
     <nav>
         <a href="#inicio">Início</a>
         <a href="#cardapio">Cardápio</a>
-        <a href="#pedido">Meu pedido</a>
+        <a href="#carrinho">Meu pedido</a>
+        <a href="#promocoes">Promoções</a>
     </nav>
 
     <main>
 
         <section id="inicio">
             <h2>Bem-vindo!</h2>
-            <p>Conheça nossos pratos típicos do Nordeste.</p>
+            <p>Conheça nossos pratos típicos e escolha sua unidade.</p>
+
+            <label for="unidade">Escolha a unidade:</label>
+            <select id="unidade">
+                <option value="">Selecione uma unidade</option>
+                <option value="londrina">Unidade Londrina</option>
+                <option value="curitiba">Unidade Curitiba</option>
+                <option value="maringa">Unidade Maringá</option>
+            </select>
         </section>
 
         <section id="cardapio">
-            <h2>Cardápio</h2>
+            <h2>Nosso cardápio</h2>
 
-            <div class="produto">
+            <label for="busca">Buscar prato:</label>
+            <input type="text" id="busca" placeholder="Digite o nome do prato">
+
+            <p id="aviso-cardapio">
+                Escolha uma unidade para consultar os pratos disponíveis.
+            </p>
+
+            <div class="produto" data-nome="Baião de dois"
+                data-unidades="londrina,curitiba,maringa">
                 <h3>Baião de dois</h3>
-                <p>Arroz, feijão e queijo coalho.</p>
+                <p>Arroz, feijão, queijo coalho e temperos.</p>
                 <p>Preço: R$ 25,00</p>
                 <button onclick="adicionar('Baião de dois', 25)">
-                    Adicionar
+                    Adicionar ao pedido
                 </button>
             </div>
 
-            <div class="produto">
+            <div class="produto" data-nome="Carne de sol"
+                data-unidades="londrina,maringa">
                 <h3>Carne de sol</h3>
-                <p>Carne de sol com mandioca.</p>
+                <p>Carne de sol acompanhada de mandioca.</p>
                 <p>Preço: R$ 35,00</p>
                 <button onclick="adicionar('Carne de sol', 35)">
-                    Adicionar
+                    Adicionar ao pedido
                 </button>
             </div>
 
-            <div class="produto">
+            <div class="produto" data-nome="Cuscuz nordestino"
+                data-unidades="curitiba,maringa">
                 <h3>Cuscuz nordestino</h3>
-                <p>Cuscuz tradicional.</p>
+                <p>Cuscuz tradicional com acompanhamentos.</p>
                 <p>Preço: R$ 15,00</p>
                 <button onclick="adicionar('Cuscuz nordestino', 15)">
-                    Adicionar
+                    Adicionar ao pedido
+                </button>
+            </div>
+
+            <div class="produto" data-nome="Tapioca"
+                data-unidades="londrina,curitiba">
+                <h3>Tapioca</h3>
+                <p>Tapioca recheada com queijo coalho.</p>
+                <p>Preço: R$ 12,00</p>
+                <button onclick="adicionar('Tapioca', 12)">
+                    Adicionar ao pedido
                 </button>
             </div>
         </section>
 
-        <section id="pedido">
+        <section id="carrinho">
             <h2>Meu pedido</h2>
 
-            <p id="itens">Nenhum produto adicionado.</p>
+            <p>Unidade escolhida: <span id="unidade-pedido">Nenhuma</span></p>
+
+            <div id="itens">
+                Nenhum produto adicionado.
+            </div>
+
             <p>Total: R$ <span id="total">0,00</span></p>
 
-            <h3>Seus dados</h3>
+            <button type="button" onclick="limparCarrinho()">
+                Limpar pedido
+            </button>
+        </section>
+
+        <section id="finalizacao">
+            <h2>Finalizar pedido</h2>
 
             <form id="formulario">
+
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" required>
 
                 <label for="email">E-mail:</label>
                 <input type="email" id="email" required>
 
-                <p>
-                    <input type="checkbox" id="privacidade" required>
-                    Li e aceito o aviso de privacidade.
+                <label for="pagamento">Forma de pagamento:</label>
+                <select id="pagamento" required>
+                    <option value="">Escolha uma opção</option>
+                    <option value="pix">Pix demonstrativo</option>
+                    <option value="cartao">Cartão demonstrativo</option>
+                </select>
+
+                <label for="resultado-pagamento">
+                    Resultado para teste:
+                </label>
+                <select id="resultado-pagamento" required>
+                    <option value="aprovado">Simular aprovação</option>
+                    <option value="recusado">Simular recusa</option>
+                    <option value="indisponivel">Simular serviço indisponível</option>
+                </select>
+
+                <p class="aviso">
+                    Este é um pagamento fictício para fins acadêmicos.
+                    Nenhuma cobrança será realizada.
                 </p>
 
-                <button type="submit">Finalizar pedido</button>
+                <label>
+                    <input type="checkbox" id="privacidade" required>
+                    Li e aceito o aviso de privacidade.
+                </label>
+
+                <label>
+                    <input type="checkbox" id="promocoes">
+                    Quero receber promoções e novidades.
+                </label>
+
+                <button type="submit">Confirmar pedido</button>
             </form>
 
             <p id="mensagem"></p>
+        </section>
+
+        <section id="acompanhamento">
+            <h2>Acompanhar pedido</h2>
+
+            <p id="numero-pedido">Nenhum pedido confirmado.</p>
+            <p>Status: <span id="status-pedido">Aguardando pedido</span></p>
+
+            <button type="button" onclick="atualizarStatus()">
+                Atualizar status demonstrativo
+            </button>
+
+            <button type="button" id="tentar-novamente"
+                onclick="tentarNovamente()" hidden>
+                Tentar pagamento novamente
+            </button>
+        </section>
+
+        <section id="promocoes">
+            <h2>Promoções e fidelidade</h2>
+
+            <h3>Promoção da casa</h3>
+            <p>Consulte nossas opções e aproveite os sabores nordestinos.</p>
+
+            <h3>Programa de fidelidade</h3>
+            <p>
+                Nesta demonstração, os clientes podem conhecer a proposta
+                de receber benefícios em compras futuras.
+            </p>
+            <p id="mensagem-fidelidade">
+                A participação é opcional.
+            </p>
+        </section>
+
+        <section id="privacidade-info">
+            <h2>Privacidade e proteção de dados</h2>
+
+            <p>
+                Os dados informados nesta página são usados apenas para
+                demonstrar o fluxo do pedido. Esta versão não envia os
+                dados a um servidor.
+            </p>
+
+            <p>
+                A aceitação de promoções é opcional e separada do aceite
+                do aviso de privacidade necessário para continuar a simulação.
+            </p>
         </section>
 
     </main>
 
     <footer>
         <p>Raízes do Nordeste - 2026</p>
+        <p>Projeto acadêmico de Front-End.</p>
     </footer>
 
     <script src="script.js"></script>

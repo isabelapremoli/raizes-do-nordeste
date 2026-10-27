@@ -1,4 +1,5 @@
 
+
 body {
     font-family: Arial, sans-serif;
     background-color: #fff8ed;
@@ -25,6 +26,7 @@ nav a {
     color: white;
     text-decoration: none;
     margin: 10px;
+    display: inline-block;
 }
 
 /* Conteúdo */
@@ -45,6 +47,10 @@ h2 {
     color: #8b2f16;
 }
 
+h3 {
+    color: #572010;
+}
+
 /* Cardápio */
 .produto {
     background-color: #fff8ed;
@@ -53,12 +59,31 @@ h2 {
     margin-top: 15px;
 }
 
+/* Campos e listas */
+input[type="text"],
+input[type="email"],
+select {
+    display: block;
+    width: 95%;
+    max-width: 450px;
+    padding: 10px;
+    margin: 8px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="checkbox"] {
+    margin-right: 8px;
+}
+
 /* Botões */
 button {
     background-color: #8b2f16;
     color: white;
     border: none;
+    border-radius: 4px;
     padding: 10px 15px;
+    margin: 5px 5px 5px 0;
     cursor: pointer;
 }
 
@@ -66,13 +91,23 @@ button:hover {
     background-color: #572010;
 }
 
-/* Campos do formulário */
-input[type="text"],
-input[type="email"] {
-    display: block;
-    width: 95%;
-    padding: 8px;
-    margin: 8px 0 15px;
+button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+/* Mensagens */
+#mensagem,
+#status-pedido,
+#numero-pedido {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.aviso {
+    background-color: #fff0d8;
+    padding: 12px;
+    border-left: 4px solid #8b2f16;
 }
 
 /* Rodapé */
@@ -85,12 +120,33 @@ footer {
 
 /* Ajuste para celulares */
 @media (max-width: 600px) {
+    header {
+        padding: 20px 10px;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+
     nav a {
-        display: inline-block;
         margin: 5px;
     }
 
     main {
         width: 95%;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select {
+        width: 95%;
+    }
+
+    button {
+        max-width: 100%;
     }
 }
