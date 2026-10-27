@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raízes do Nordeste</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Raízes do Nordeste</h1>
+        <p>Comida boa e tradição nordestina!</p>
+    </header>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#pedido">Meu pedido</a>
+    </nav>
+
+    <main>
+
+        <section id="inicio">
+            <h2>Bem-vindo!</h2>
+            <p>Conheça nossos pratos típicos do Nordeste.</p>
+        </section>
+
+        <section id="cardapio">
+            <h2>Cardápio</h2>
+
+            <div class="produto">
+                <h3>Baião de dois</h3>
+                <p>Arroz, feijão e queijo coalho.</p>
+                <p>Preço: R$ 25,00</p>
+                <button onclick="adicionar('Baião de dois', 25)">
+                    Adicionar
+                </button>
+            </div>
+
+            <div class="produto">
+                <h3>Carne de sol</h3>
+                <p>Carne de sol com mandioca.</p>
+                <p>Preço: R$ 35,00</p>
+                <button onclick="adicionar('Carne de sol', 35)">
+                    Adicionar
+                </button>
+            </div>
+
+            <div class="produto">
+                <h3>Cuscuz nordestino</h3>
+                <p>Cuscuz tradicional.</p>
+                <p>Preço: R$ 15,00</p>
+                <button onclick="adicionar('Cuscuz nordestino', 15)">
+                    Adicionar
+                </button>
+            </div>
+        </section>
+
+        <section id="pedido">
+            <h2>Meu pedido</h2>
+
+            <p id="itens">Nenhum produto adicionado.</p>
+            <p>Total: R$ <span id="total">0,00</span></p>
+
+            <h3>Seus dados</h3>
+
+            <form id="formulario">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" required>
+
+                <p>
+                    <input type="checkbox" id="privacidade" required>
+                    Li e aceito o aviso de privacidade.
+                </p>
+
+                <button type="submit">Finalizar pedido</button>
+            </form>
+
+            <p id="mensagem"></p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Raízes do Nordeste - 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

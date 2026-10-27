@@ -1,0 +1,96 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff8ed;
+    color: #333;
+    margin: 0;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #8b2f16;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+/* Menu */
+nav {
+    background-color: #572010;
+    text-align: center;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+}
+
+/* Conteúdo */
+main {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+section {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+h2 {
+    color: #8b2f16;
+}
+
+/* Cardápio */
+.produto {
+    background-color: #fff8ed;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+/* Botões */
+button {
+    background-color: #8b2f16;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #572010;
+}
+
+/* Campos do formulário */
+input[type="text"],
+input[type="email"] {
+    display: block;
+    width: 95%;
+    padding: 8px;
+    margin: 8px 0 15px;
+}
+
+/* Rodapé */
+footer {
+    background-color: #572010;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 600px) {
+    nav a {
+        display: inline-block;
+        margin: 5px;
+    }
+
+    main {
+        width: 95%;
+    }
+}
